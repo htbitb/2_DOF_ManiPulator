@@ -1,0 +1,9 @@
+function [T,R,invR,P] = FK_DYN( anpha,a,d,theta )
+T = [cos(theta),            -sin(theta),            0,              a;...
+     sin(theta)*cos(anpha), cos(theta)*cos(anpha),  -sin(anpha),    -d*sin(anpha);...
+     sin(theta)*sin(anpha), cos(theta)*sin(anpha),  cos(anpha),     d*cos(anpha);...
+     0,                     0,                      0,              1];
+R=T(1:3,1:3);
+invR=R';
+P=T(1:3,4);
+end
